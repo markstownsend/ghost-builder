@@ -1,12 +1,13 @@
 var gulp = require('gulp');
 var replace = require('gulp-replace-task');
+var rename = require('gulp-rename');
 
 gulp.task('default', function() {
 	
 });
 
 gulp.task('replace', function(){
-	gulp.src('**\*.html')
+	gulp.src('./static/**/*.html')
 		.pipe(replace({
 			patterns: [
 				{
@@ -23,10 +24,11 @@ gulp.task('replace', function(){
 				}
 			]
 		}))
-		.pipe(gulp.dest('build'));
+		.pipe(gulp.dest('./markstownsend.github.io'));
 });
 
 gulp.task('move-images', function(){
-	gulp.src(['**\*.jpg', '**\*.JPG','**\*.PNG','**\*.png'])
-	.pipe
+	gulp.src(['static/**/*.jpg', 'static/**/*.JPG','static/**/*.PNG','static/**/*.png'])
+		.pipe(rename({dirname: ''}))
+		.pipe(gulp.dest('./markstownsend.github.io/assets/images'));
 });
