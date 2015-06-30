@@ -73,3 +73,4 @@ Voila a new freely hosted blog post.
     +--static
     |   +-- buster generated dynamic content
 ```
+[^5]: Substitute the name of your repo for markstownsend.  As noted [else where](https://pages.github.com/) for this to work your repo must be named the same as your Github username.  
