@@ -8,7 +8,7 @@ There are a couple of post-Buster steps to clean up some of the output from that
 ```
 npm start
 ```
-Note: that ghost runs with node 0.10.x.  I have multiple versions of node installed so before starting ghost I select the version of node to use for ghost using nvmw:
+Note: that ghost runs with node 0.10.x.  I have multiple versions of node installed so before starting ghost I select the version of node to use for ghost using nvmw in my node command prompt in the ghost directory:
 ```
 nvmw use 0.10.9
 ```
