@@ -11,11 +11,11 @@ gulp.task('replace', function(){
 	gulp.src('./static/**/*.html')
 		.pipe(replace(new RegExp('s.v=\\w+"><','g'),function(match, p1, offset, string){
 			return 's"><';
-		}))
+		})) // removes the asset query string from a properly closed tag i.e. <tag src="pathtosource?v=ghostquerystring"></tag>
 		.pipe(replace(new RegExp('s.v=\\w+">','g'),function(match, p1, offset, string){
 			return 's"/>';
-		}))
-		.pipe(replace('</html>t:2368/assets/js/main.min.js"></script></body>',''))
+		})) //removes the asset query string from an improperly shortcut closed tag i.e. <tag src="pathtosource?v=ghostquerystring"> note the missing back slash before the '>' 
+		.pipe(replace('</html>t:2368/assets/js/main.min.js"></script></body>','')) // some random string that showed up in the root index.html
 		.pipe(replace('src="/public/jquery.js"','src="https://code.jquery.com/jquery-2.1.4.min.js"'))
 		.pipe(replace('/content/images/2015/06/','/assets/images/'))
 		.pipe(gulp.dest('./markstownsend.github.io'));
