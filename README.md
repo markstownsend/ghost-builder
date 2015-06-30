@@ -1,5 +1,7 @@
 # ghost-builder
-Repo for building my ghost driven github hosted blog
+Repo for building my ghost driven, github hosted blog.
+
+There are a couple of post-Buster steps to clean up some of the output from that program.
 
 * Switch in to Ghost directory using node command prompt and start ghost using 
 
@@ -7,7 +9,11 @@ Repo for building my ghost driven github hosted blog
 npm start
 ```
 
-* Make desired change.
+* Make desired change.  Note: if your desired change involves deleting anything then you should perform a
+```
+gulp deep-clean
+```
+before executing the buster steps.  This is because the buster generate does not clean out the destination directory.
 
 * Open an admin console and switch in to buster directory
 
@@ -18,6 +24,9 @@ buster generate --domain=http://localhost:2368 --dir=C:\mark\ghost-builder-dir\s
 ```
 
 * Switch in to ghost-builder-dir and execute the following command: 
+```
+gulp shallow-clean
+```
 ```
 gulp build
 ```
@@ -35,3 +44,5 @@ Voila a new freely hosted blog post.
 [^1]: [Using GitHub Pages with Ghost and Buster on Windows (part 1)](http://leftofnull.com/2014/02/07/using-github-pages-with-ghost-and-buster-on-windows-part-1/index.html)
 
 [^2]: [Using GitHub Pages with Ghost and Buster on Windows (part 2)](http://leftofnull.com/2014/02/24/using-github-pages-with-ghost-and-buster-on-windows-part-2/)
+
+[^3]: This is not a perfect process so it's worth keeping an eye out for odd errors that appear.  Look at the gulp.replace tasks for examples that have occurred.
