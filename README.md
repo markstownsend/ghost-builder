@@ -46,3 +46,27 @@ Voila a new freely hosted blog post.
 [^2]: [Using GitHub Pages with Ghost and Buster on Windows (part 2)](http://leftofnull.com/2014/02/24/using-github-pages-with-ghost-and-buster-on-windows-part-2/)
 
 [^3]: This is not a perfect process so it's worth keeping an eye out for odd errors that appear.  Look at the gulp.replace tasks for examples that have occurred.
+
+[^4]: This is the expected folder structure for this to work without changes:
+
+```
+.
++-- buster
++-- ghost-0.6.4
+|   +-- content\images
+|   +-- content\themes\slimpost-master\assets
++-- ghost-builder
+|   +-- .git
+|   +-- .gitignore
+|   +--gulpfile.js
+|   +--LICENSE
+|   +--README.md
+|   +--markstownsend.github.io
+    |   +-- .git
+    |   +-- .gitignore
+    |   +-- CNAME
+    |   +-- README.md
+    |   +-- gulp generated dynamic content
+    +--static
+    |   +-- buster generated dynamic content
+```
