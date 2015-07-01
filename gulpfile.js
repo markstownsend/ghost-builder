@@ -18,6 +18,9 @@ gulp.task('replace', function(){
 		.pipe(replace(new RegExp('<\/html>[\\s\\S]+<\/script>\\n<\/body>','i'), function(match, p1, offset, string){
 			return '';
 		})) // some random string that shows up in the foot of the root index.html duplicating the body and html closing tags
+		.pipe(replace(new RegExp('(<\/html>[\\s\\S]+)(<\/html)','i'), function(match, p1, p2, offset, string){
+			return p2;
+		})) // some random string that shows up in the foot of the  about\index.html duplicating the html closing tag
 		.pipe(replace('/assets/mark%20townsend%20technical%20lead.pdf','../assets/mark%20townsend%20technical%20lead.pdf')) // mangles the manual href for downloading a static doc
 		.pipe(replace('src="/public/jquery.js"','src="https://code.jquery.com/jquery-2.1.4.min.js"')) // get jquery from the cdn
 		.pipe(replace(new RegExp('(\/content\/images\/20[0-9][0-9]\/[0|1][1-9]\/)(.+)','g'),function(match, p1, p2, offset, string){
